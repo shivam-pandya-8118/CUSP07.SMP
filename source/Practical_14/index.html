@@ -167,7 +167,7 @@
       <fieldset>
         <legend>Personal Details</legend>
         <label>Student's name:</label>
-        <input type="text" id="studentName" />
+        <input type="text" autofocus id="studentName" />
         <br /><br />
         <label>Student's Birthdate:</label>
         <input type="date" id="studentDOB" style="text-transform: uppercase" />
@@ -239,7 +239,7 @@
       </fieldset>
       <fieldset>
         <legend>Submission</legend>
-        <input
+        <input required
           type="checkbox"
           id="acceptTerms"
           style="float: left; margin-right: 10px"
@@ -253,55 +253,59 @@
         <input type="button" value="Submit" onclick="submitForm()" />
       </fieldset>
     </form>
+   <script>
+  function submitForm() {
+    // Collect form data
+    const formData = {
+      studentName: document.getElementById("studentName").value,
+      studentDOB: document.getElementById("studentDOB").value,
+      studentMobile: document.getElementById("studentMobile").value,
+      studentEmail: document.getElementById("studentEmail").value,
+      studentGender: document.getElementById("studentGender").value,
+      phyDisability: document.getElementById("phyDisability").value,
+      fatherName: document.getElementById("fatherName").value,
+      fatherMobile: document.getElementById("fatherMobile").value,
+      motherName: document.getElementById("motherName").value,
+      motherMobile: document.getElementById("motherMobile").value,
+      sscYear: document.getElementById("sscYear").value,
+      sscBoard: document.getElementById("sscBoard").value,
+      totalMarks: document.getElementById("totalMarks").value,
+      obtainedMarks: document.getElementById("obtainedMarks").value,
+      sscPercentage: document.getElementById("sscPercentage").value,
+      sscAttempts: document.getElementById("sscAttempts").value,
+    };
 
-    <script>
-      function submitForm() {
-        // Collect form data
-        const formData = {
-          studentName: document.getElementById("studentName").value,
-          studentDOB: document.getElementById("studentDOB").value,
-          studentMobile: document.getElementById("studentMobile").value,
-          studentEmail: document.getElementById("studentEmail").value,
-          studentGender: document.getElementById("studentGender").value,
-          phyDisability: document.getElementById("phyDisability").value,
-          fatherName: document.getElementById("fatherName").value,
-          fatherMobile: document.getElementById("fatherMobile").value,
-          motherName: document.getElementById("motherName").value,
-          motherMobile: document.getElementById("motherMobile").value,
-          sscYear: document.getElementById("sscYear").value,
-          sscBoard: document.getElementById("sscBoard").value,
-          totalMarks: document.getElementById("totalMarks").value,
-          obtainedMarks: document.getElementById("obtainedMarks").value,
-          sscPercentage: document.getElementById("sscPercentage").value,
-          sscAttempts: document.getElementById("sscAttempts").value,
-        };
+    // Generate PDF document with jsPDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
-        // Generate PDF document with jsPDF
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+    doc.text("Student Registration Form", 20, 10);
+    doc.text(`Student Name: ${formData.studentName}`, 20, 20);
+    doc.text(`Date of Birth: ${formData.studentDOB}`, 20, 30);
+    doc.text(`Mobile: ${formData.studentMobile}`, 20, 40);
+    doc.text(`Email: ${formData.studentEmail}`, 20, 50);
+    doc.text(`Gender: ${formData.studentGender}`, 20, 60);
+    doc.text(`Physically Handicapped: ${formData.phyDisability}`, 20, 70);
+    doc.text(`Father's Name: ${formData.fatherName}`, 20, 80);
+    doc.text(`Father's Mobile: ${formData.fatherMobile}`, 20, 90);
+    doc.text(`Mother's Name: ${formData.motherName}`, 20, 100);
+    doc.text(`Mother's Mobile: ${formData.motherMobile}`, 20, 110);
+    doc.text(`SSC Passing Year: ${formData.sscYear}`, 20, 120);
+    doc.text(`SSC Board: ${formData.sscBoard}`, 20, 130);
+    doc.text(`SSC Total Marks: ${formData.totalMarks}`, 20, 140);
+    doc.text(`SSC Obtained Marks: ${formData.obtainedMarks}`, 20, 150);
+    doc.text(`SSC Percentage: ${formData.sscPercentage}`, 20, 160);
+    doc.text(`Attempts to pass SSC: ${formData.sscAttempts}`, 20, 170);
 
-        doc.text("Student Registration Form", 20, 10);
-        doc.text(`Student Name: ${formData.studentName}`, 20, 20);
-        doc.text(`Date of Birth: ${formData.studentDOB}`, 20, 30);
-        doc.text(`Mobile: ${formData.studentMobile}`, 20, 40);
-        doc.text(`Email: ${formData.studentEmail}`, 20, 50);
-        doc.text(`Gender: ${formData.studentGender}`, 20, 60);
-        doc.text(`Physically Handicapped: ${formData.phyDisability}`, 20, 70);
-        doc.text(`Father's Name: ${formData.fatherName}`, 20, 80);
-        doc.text(`Father's Mobile: ${formData.fatherMobile}`, 20, 90);
-        doc.text(`Mother's Name: ${formData.motherName}`, 20, 100);
-        doc.text(`Mother's Mobile: ${formData.motherMobile}`, 20, 110);
-        doc.text(`SSC Passing Year: ${formData.sscYear}`, 20, 120);
-        doc.text(`SSC Board: ${formData.sscBoard}`, 20, 130);
-        doc.text(`SSC Total Marks: ${formData.totalMarks}`, 20, 140);
-        doc.text(`SSC Obtained Marks: ${formData.obtainedMarks}`, 20, 150);
-        doc.text(`SSC Percentage: ${formData.sscPercentage}`, 20, 160);
-        doc.text(`Attempts to pass SSC: ${formData.sscAttempts}`, 20, 170);
+    // Save PDF
+    doc.save("student_registration.pdf");
 
-        // Save PDF and redirect
-        doc.save("student_registration.pdf");
-        window.location.href = "index.html"; // Redirect to the main page after submission
-      }
-    </script>
-  </body>
+    // Show alert
+    alert(" ✅ You are Registered Successfully. Your Registration Form is downloaded !");
+
+    // Redirect to the main page after submission
+    window.location.href = "index.html"; 
+  }
+</script>
+</body>
 </html>
