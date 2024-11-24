@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivam Pandya Practical List</title>
+    <style>
+      /* Reset and Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        color: #333;
+        padding: 30px;
+        line-height: 1.6;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #2980b9;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      /* Practical Item Styling */
+      .practical-item {
+        position: relative;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid #e0e0e0;
+        overflow: hidden;
+      }
+
+      /* Background Image */
+      .practical-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("./source/"); /* Demo background image */
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 0;
+      }
+
+      /* Zoom effect on hover */
+      .practical-item:hover::before {
+        opacity: 0.2;
+        transform: scale(1.05);
+      }
+
+      .practical-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        color: #2980b9;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #7f8c8d;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .view-live {
+        display: inline-block;
+        font-size: 1.1rem;
+        color: #fff;
+        background-color: #2980b9;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        position: relative;
+        z-index: 1;
+      }
+
+      .view-live:hover {
+        background-color: #1d6ca1;
+      }
+
+      .view-live:active {
+        background-color: #15688c;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .practical-item {
+          padding: 15px;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 0.95rem;
+        }
+
+        .view-live {
+          font-size: 1rem;
+          padding: 8px 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.7rem;
+        }
+
+        .practical-item {
+          padding: 12px;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .view-live {
+          font-size: 0.95rem;
+          padding: 6px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shivam Pandya, CUSP(07), SWPD Practicals.</h1>
+    <div class="container">
+      <!-- Practical Items -->
+      <div class="practical-item">
+        <h2>Practical 8</h2>
+        <p>Introduction of HTML Headings and Paragraph.</p>
+        <a href="./source/Practical_8/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 9</h2>
+        <p>HTML anchor tag and Image tag</p>
+        <a href="./source/Practical_9/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 10</h2>
+        <p>Introduction of Tables in HTML</p>
+        <a href="./source/Practical_10/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical Work</h2>
+        <p>CUSP Computer department Time table</p>
+        <a href="./source/Practical_10/work.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 11</h2>
+        <p>HTML Lists Practicle. Which contains ordered list, unordered list and description list</p>
+        <a href="./source/Practical_11/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 12</h2>
+        <p>This practical is focused on HTML sematic elements which gives responsiveness to webpage.</p>
+        <a href="./source/Practical_12/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 13</h2>
+        <p>Simple HTML Student registration form using various form tags.</p>
+        <a href="./source/Practical_13/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 14</h2>
+        <p>Stylize that HTML Registration form Created in Practical 13</p>
+        <a href="./source/Practical_14/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 15</h2>
+        <p>Profile card</p>
+        <a href="./source/Practical_15/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 16.1</h2>
+        <p>This Program finds roots of quadratic equation using JavaScript.</p>
+        <a href="./source/Practical_16/Program1.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 16.2</h2>
+        <p>This practical demonstrates how to find maximum from given three numbers using JavaScript.</p>
+        <a href="./source/Practical_16/Program2.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 17</h2>
+        <p>This program finds type of character using switch case in JavaScript.</p>
+        <a href="./source/Practical_17/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 18</h2>
+        <p>This practical explores the topic of JavaScript DOM manipulation.</p>
+        <a href="./source/Practical_18/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+
+      <div class="practical-item">
+        <h2>Practical 19</h2>
+        <p>Simple Calculator which performs basic arithmatic ooparations between two integers.</p>
+        <a href="./source/Practical_19/index.html" class="view-live" target="_blank">View Live</a>
+      </div>
+    </div>
+  </body>
+</html>
