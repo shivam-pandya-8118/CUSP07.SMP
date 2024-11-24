@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration Form</title>
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f9fc;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; /* Align left */
+        align-items: center; /* Align top */
+        flex-direction: column;
+        min-height: 100vh;
+        padding-left: 20px; /* Add padding for better alignment */
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        color: #7f8c8d;
+        font-size: 1.2em;
+        margin-top: 0;
+        margin-bottom: 30px;
+      }
+
+      form {
+        background-color: white;
+        border-radius: 8px;
+        padding: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 900px;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      fieldset {
+        border: none;
+        margin-bottom: 20px;
+      }
+
+      legend {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #2980b9;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #2980b9;
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #34495e;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      input[type="month"],
+      select {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #34495e;
+        background-color: #f4f6f9;
+      }
+
+      input[type="submit"],
+      input[type="button"],
+      input[type="reset"] {
+        background-color: #3498db;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: auto;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover,
+      input[type="button"]:hover,
+      input[type="reset"]:hover {
+        background-color: #2980b9;
+      }
+
+      input[type="submit"]:disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
+      }
+
+      .terms-checkbox {
+        margin-right: 10px;
+      }
+
+      .terms-label {
+        font-size: 14px;
+        color: #34495e;
+      }
+
+      .form-footer {
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        form {
+          padding: 25px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        h2 {
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        form {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.6em;
+        }
+
+        label {
+          font-size: 12px;
+        }
+
+        input[type="submit"],
+        input[type="button"],
+        input[type="reset"] {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center">Student Registration Form</h1>
+    <h2 align="center">C. U. Shah Government Polytechnic, Surendranagar.</h2>
+    <form id="registrationForm">
+      <fieldset>
+        <legend>Personal Details</legend>
+        <label>Student's name:</label>
+        <input type="text" id="studentName" />
+        <br /><br />
+        <label>Student's Birthdate:</label>
+        <input type="date" id="studentDOB" style="text-transform: uppercase" />
+        <br /><br />
+        <label>Student's Mobile No.:</label>
+        <input type="text" id="studentMobile" />
+        <br /><br />
+        <label>Student's Email ID:</label>
+        <input type="email" id="studentEmail" />
+        <br /><br />
+        <label>Student's Gender:</label>
+        <select id="studentGender">
+          <option value="select" default="true">--select--</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br /><br />
+        <label>Are you physically handicapped:</label>
+        <select id="phyDisability">
+          <option value="select" default="true">--select--</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Parents' Details</legend>
+        <label>Father's name:</label>
+        <input type="text" id="fatherName" />
+        <br /><br />
+        <label>Father's Mobile No.:</label>
+        <input type="text" id="fatherMobile" />
+        <br /><br />
+        <label>Mother's name:</label>
+        <input type="text" id="motherName" />
+        <br /><br />
+        <label>Mother's Mobile No.:</label>
+        <input type="text" id="motherMobile" />
+        <br /><br />
+      </fieldset>
+      <fieldset>
+        <legend>Student's Educational Information</legend>
+        <label>Month and year of passing SSC board:</label>
+        <input type="month" id="sscYear" style="text-transform: uppercase" />
+        <br /><br />
+        <label>Type of passed SSC board:</label>
+        <select id="sscBoard">
+          <option value="select" default="true">--select--</option>
+          <option value="GSEB">GSEB</option>
+          <option value="CBSE">CBSE</option>
+        </select>
+        <br /><br />
+        <label>Total marks of SSC board exam:</label>
+        <input type="text" id="totalMarks" maxlength="3" placeholder="XXX" />
+        <br /><br />
+        <label>Obtained marks of SSC board exam:</label>
+        <input type="text" id="obtainedMarks" maxlength="3" placeholder="XXX" />
+        <br /><br />
+        <label>Percentage obtained in SSC board exam:</label>
+        <input type="text" id="sscPercentage" />
+        <br /><br />
+        <label>Number of attempts to pass SSC board exam:</label>
+        <select id="sscAttempts">
+          <option value="select" default="true">--select--</option>
+          <option value="First">First</option>
+          <option value="Second">Second</option>
+          <option value="Third">Third</option>
+          <option value="Above third">Above Third</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Submission</legend>
+        <input
+          type="checkbox"
+          id="acceptTerms"
+          style="float: left; margin-right: 10px"
+        />
+        <label
+          >I accept the <a href="#">terms and conditions</a> Provided by
+          Organization.</label
+        >
+        <br /><br />
+        <input type="reset" value="Reset" />
+        <input type="button" value="Submit" onclick="submitForm()" />
+      </fieldset>
+    </form>
+
+    <script>
+      function submitForm() {
+        // Collect form data
+        const formData = {
+          studentName: document.getElementById("studentName").value,
+          studentDOB: document.getElementById("studentDOB").value,
+          studentMobile: document.getElementById("studentMobile").value,
+          studentEmail: document.getElementById("studentEmail").value,
+          studentGender: document.getElementById("studentGender").value,
+          phyDisability: document.getElementById("phyDisability").value,
+          fatherName: document.getElementById("fatherName").value,
+          fatherMobile: document.getElementById("fatherMobile").value,
+          motherName: document.getElementById("motherName").value,
+          motherMobile: document.getElementById("motherMobile").value,
+          sscYear: document.getElementById("sscYear").value,
+          sscBoard: document.getElementById("sscBoard").value,
+          totalMarks: document.getElementById("totalMarks").value,
+          obtainedMarks: document.getElementById("obtainedMarks").value,
+          sscPercentage: document.getElementById("sscPercentage").value,
+          sscAttempts: document.getElementById("sscAttempts").value,
+        };
+
+        // Generate PDF document with jsPDF
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.text("Student Registration Form", 20, 10);
+        doc.text(`Student Name: ${formData.studentName}`, 20, 20);
+        doc.text(`Date of Birth: ${formData.studentDOB}`, 20, 30);
+        doc.text(`Mobile: ${formData.studentMobile}`, 20, 40);
+        doc.text(`Email: ${formData.studentEmail}`, 20, 50);
+        doc.text(`Gender: ${formData.studentGender}`, 20, 60);
+        doc.text(`Physically Handicapped: ${formData.phyDisability}`, 20, 70);
+        doc.text(`Father's Name: ${formData.fatherName}`, 20, 80);
+        doc.text(`Father's Mobile: ${formData.fatherMobile}`, 20, 90);
+        doc.text(`Mother's Name: ${formData.motherName}`, 20, 100);
+        doc.text(`Mother's Mobile: ${formData.motherMobile}`, 20, 110);
+        doc.text(`SSC Passing Year: ${formData.sscYear}`, 20, 120);
+        doc.text(`SSC Board: ${formData.sscBoard}`, 20, 130);
+        doc.text(`SSC Total Marks: ${formData.totalMarks}`, 20, 140);
+        doc.text(`SSC Obtained Marks: ${formData.obtainedMarks}`, 20, 150);
+        doc.text(`SSC Percentage: ${formData.sscPercentage}`, 20, 160);
+        doc.text(`Attempts to pass SSC: ${formData.sscAttempts}`, 20, 170);
+
+        // Save PDF and redirect
+        doc.save("student_registration.pdf");
+        window.location.href = "index.html"; // Redirect to the main page after submission
+      }
+    </script>
+  </body>
+</html>

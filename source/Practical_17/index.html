@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vowel or Consonant Checker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f9;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        width: 80%;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .result {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Vowel or Consonant Checker</h2>
+      <input
+        type="text"
+        id="charInput"
+        maxlength="1"
+        placeholder="Enter a letter"
+      />
+      <button onclick="checkCharacter()">Check</button>
+      <h3 class="result" id="result"></h3>
+    </div>
+
+    <script>
+      function checkCharacter() {
+        var char = document.getElementById("charInput").value.toLowerCase();
+        var result = document.getElementById("result");
+
+        // Check if input is a single alphabetic character
+        if (char.length !== 1 || !char.match(/[a-z]/i)) {
+          result.textContent = "Enter a valid character.";
+          result.style.color = "red"; // Optional: Add color for error
+        } else {
+          // Check if the character is a vowel
+          switch (char) {
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+              result.textContent = "The character is a Vowel.";
+              result.style.color = "black"; // Reset text color
+              break;
+            default:
+              result.textContent = "The character is a Consonant.";
+              result.style.color = "black"; // Reset text color
+              break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
