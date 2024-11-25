@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Sematic tag's demo</title>
+    <style>
+      /* Reset some basic styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body and basic layout styles */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      /* Header styling */
+      header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* Navigation styling */
+      nav {
+        background-color: #444;
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style: none;
+        text-align: center;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      nav ul li a:hover {
+        color: #ddd;
+      }
+
+      /* Section and Layout styling */
+      section {
+        display: flex;
+        padding: 20px;
+        justify-content: space-between;
+      }
+
+      article {
+        flex: 3;
+        padding-right: 20px;
+      }
+
+      aside {
+        flex: 1;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      /* Footer styling */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Website Header</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        <h2>Main Article</h2>
+        <p>This is the main content of the article.</p>
+      </article>
+      <aside>
+        <h3>Sidebar</h3>
+        <p>This is additional content that goes into the sidebar.</p>
+      </aside>
+    </section>
+    <footer>
+      <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

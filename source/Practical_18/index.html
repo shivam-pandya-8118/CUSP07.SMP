@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background Color</title>
+    <style>
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Change Background Color</h1>
+
+    <!-- Dropdown for predefined colors -->
+    <select id="colorSelector" onchange="changeBackgroundColorFromDropdown()">
+      <option value="white">White</option>
+      <option value="lightblue">Light Blue</option>
+      <option value="lightgreen">Light Green</option>
+      <option value="lightyellow">Light Yellow</option>
+    </select>
+
+    <p>Or type a color name or hex code:</p>
+
+    <!-- Input field for custom color -->
+    <input
+      type="text"
+      id="colorInput"
+      placeholder="Enter color name or hex code"
+    />
+    <button onclick="changeBackgroundColorFromInput()">Colorize</button>
+
+    <p id="errorMessage" class="error"></p>
+
+    <script>
+      // Function to change background color from dropdown
+      function changeBackgroundColorFromDropdown() {
+        var color = document.getElementById("colorSelector").value;
+        document.body.style.backgroundColor = color;
+        document.getElementById("errorMessage").textContent = ""; // Clear error message
+      }
+
+      // Function to change background color from input
+      function changeBackgroundColorFromInput() {
+        var colorInput = document.getElementById("colorInput").value;
+        var errorMessage = document.getElementById("errorMessage");
+
+        // Check if the input is a valid color name or hex code
+        if (isValidColor(colorInput)) {
+          document.body.style.backgroundColor = colorInput;
+          errorMessage.textContent = ""; // Clear any previous error message
+        } else {
+          errorMessage.textContent =
+            "Invalid color or hex code. Please try again!";
+        }
+      }
+
+      // Function to validate if the input is a valid color name or hex code
+      function isValidColor(color) {
+        var s = new Option().style;
+        s.color = color;
+        return s.color !== ""; // This will be true if the color is valid
+      }
+    </script>
+  </body>
+</html>
